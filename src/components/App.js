@@ -14,8 +14,17 @@ class App extends React.Component {
   }
 
   // TODO: componentWillMount()
+  componentWillMount() {
+    this.fetchTweets()
+  }
   // TODO: componentDidMount()
+  componentDidMount(){
+    this.startInterval()
+  }
   // TODO: componentWillUnmount()
+  componentWillUnmount() {
+    this.cleanUpInterval()
+  }
 
   startInterval = () => {
     this.interval = setInterval(this.fetchTweets, 2000);
@@ -29,6 +38,7 @@ class App extends React.Component {
       latestTweets: newTweets
     });
   }
+
 
   render() {
     return (
